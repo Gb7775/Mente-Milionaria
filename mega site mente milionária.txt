@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mente Milionária - O eBook Definitivo Para Riqueza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --black: #0F0F0F;
+            --light-black: #1A1A1A;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--black);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .bg-gold-gradient {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
+        }
+        
+        .text-gold {
+            color: var(--gold);
+        }
+        
+        .border-gold {
+            border-color: var(--gold);
+        }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
+            color: var(--black);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+        }
+        
+        .btn-outline-gold {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-gold:hover {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+        
+        .section-divider {
+            position: relative;
+            height: 100px;
+            overflow: hidden;
+        }
+        
+        .section-divider::before {
+            content: "";
+            position: absolute;
+            left: -5%;
+            top: -50px;
+            width: 110%;
+            height: 200px;
+            background: var(--light-black);
+            transform: rotate(-2deg);
+            z-index: -1;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+        }
+        
+        .countdown-box {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(15, 15, 15, 0.9) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--gold);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            font-size: 30px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .mindset-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mindset-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mindset-card.gold {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(15, 15, 15, 0.9) 100%);
+            border-color: var(--gold);
+        }
+        
+        .mindset-card.red {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(15, 15, 15, 0.9) 100%);
+            border-color: #FF0000;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+        }
+        
+        .scroll-indicator::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: scrollDown 1.5s infinite;
+        }
+        
+        @keyframes scrollDown {
+            0% { top: 8px; opacity: 1; }
+            100% { top: 24px; opacity: 0; }
+        }
+        
+        .offer-badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: #FF0000;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            transform: rotate(15deg);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .price-strikethrough {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .price-strikethrough::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -5%;
+            width: 110%;
+            height: 2px;
+            background: #FF0000;
+            transform: rotate(-10deg);
+        }
+        
+        @media (max-width: 768px) {
+            .section-divider {
+                height: 60px;
+            }
+            
+            .section-divider::before {
+                top: -30px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="fixed w-full bg-black bg-opacity-90 z-50 border-b border-gray-800 py-4 px-6 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full bg-gold-gradient flex items-center justify-center mr-3">
+                    <i class="fas fa-crown text-black"></i>
+                </div>
+                <h1 class="font-display text-xl md:text-2xl text-gold font-bold">MENTE MILIONÁRIA</h1>
+            </div>
+            <div>
+                <a href="#offer" class="btn-gold px-6 py-2 rounded-full font-semibold text-sm md:text-base">COMPRE AGORA</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-b from-black to-gray-900 overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black z-10"></div>
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjMDAwMDAwIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiNEMkEyMzciIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=')]"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0">
+                    <div class="mb-6">
+                        <span class="bg-gold-gradient text-black px-4 py-1 rounded-full font-semibold text-sm inline-block">LANÇAMENTO EXCLUSIVO</span>
+                    </div>
+                    <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        DESBLOQUEIE SUA <span class="text-gold">MENTE MILIONÁRIA</span> EM APENAS 7 DIAS
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-lg">
+                        O método comprovado que já transformou a vida de mais de 10.000 pessoas e vai te levar do zero ao primeiro milhão em tempo recorde.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#offer" class="btn-gold px-8 py-4 rounded-full font-semibold text-lg pulse text-center">
+                            <span class="block">QUERO MEU EBOOK AGORA</span>
+                            <span class="block text-sm font-normal">100% Digital - Acesso Imediato</span>
+                        </a>
+                        <a href="#benefits" class="btn-outline-gold px-8 py-4 rounded-full font-semibold text-lg text-center">
+                            SAIBA MAIS
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center">
+                    <div class="relative floating">
+                        <div class="absolute -inset-4 bg-gold-gradient rounded-2xl opacity-20 blur-xl"></div>
+                        <div class="relative bg-black border-2 border-gold rounded-2xl overflow-hidden shadow-2xl" style="width: 320px; height: 450px;">
+                            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black opacity-70"></div>
+                            <div class="absolute inset-0 flex items-center justify-center p-8">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-gold-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-lock text-black text-2xl"></i>
+                                    </div>
+                                    <h3 class="font-display text-2xl text-gold font-bold mb-2">MENTE MILIONÁRIA</h3>
+                                    <p class="text-white">O segredo dos ricos finalmente revelado</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator hidden md:block"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-light-black">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="fade-in">
+                    <div class="text-4xl md:text-5xl font-bold text-gold mb-2">10.000+</div>
+                    <div class="text-gray-300 uppercase text-sm font-semibold">Alunos Transformados</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-4xl md:text-5xl font-bold text-gold mb-2">7</div>
+                    <div class="text-gray-300 uppercase text-sm font-semibold">Dias Para Resultados</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-4xl md:text-5xl font-bold text-gold mb-2">300+</div>
+                    <div class="text-gray-300 uppercase text-sm font-semibold">Páginas de Conteúdo</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-4xl md:text-5xl font-bold text-gold mb-2">24/7</div>
+                    <div class="text-gray-300 uppercase text-sm font-semibold">Acesso Vitalício</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-black relative overflow-hidden">
+        <div class="section-divider"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">O QUE DIZEM NOSSOS LEITORES</h2>
+                <div class="w-20 h-1 bg-gold-gradient mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-6 rounded-lg fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-gold"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Carlos Silva</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">
+                        "Depois de anos tentando entender como os ricos pensam, finalmente encontrei todas as respostas neste eBook. Em apenas 3 meses apliquei os princípios e já vi meu faturamento triplicar!"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-6 rounded-lg fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-gold"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Ana Beatriz</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">
+                        "Nunca imaginei que um livro pudesse mudar tanto minha vida. As técnicas de mentalidade são revolucionárias. Já recomendei para todos os meus amigos e familiares. Vale cada centavo!"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-6 rounded-lg fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-gold"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Roberto Costa</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">
+                        "Comprei vários livros sobre riqueza, mas nenhum foi tão direto ao ponto como este. O capítulo sobre hábitos matinais dos milionários mudou completamente minha rotina e produtividade."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 bg-light-black relative">
+        <div class="section-divider"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">O QUE VOCÊ VAI APRENDER</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Descubra os segredos que as escolas não ensinam e que os ricos não querem que você saiba</p>
+                <div class="w-20 h-1 bg-gold-gradient mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="fade-in">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Reprogramação Mental</h3>
+                    <p class="text-gray-400 text-center">
+                        Elimine crenças limitantes e instale uma mentalidade de abundância que atrai riqueza automaticamente para sua vida.
+                    </p>
+                </div>
+                
+                <!-- Benefit 2 -->
+                <div class="fade-in">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Estratégias Comprovadas</h3>
+                    <p class="text-gray-400 text-center">
+                        Táticas usadas pelos milionários para multiplicar seu dinheiro, mesmo começando do zero.
+                    </p>
+                </div>
+                
+                <!-- Benefit 3 -->
+                <div class="fade-in">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Hábitos Financeiros</h3>
+                    <p class="text-gray-400 text-center">
+                        Os 7 hábitos diários que separam os ricos da classe média e como implementá-los hoje mesmo.
+                    </p>
+                </div>
+                
+                <!-- Benefit 4 -->
+                <div class="fade-in">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Ideias Lucrativas</h3>
+                    <p class="text-gray-400 text-center">
+                        Descubra como identificar oportunidades invisíveis para a maioria das pessoas e transformá-las em fontes de renda.
+                    </p>
+                </div>
+                
+                <!-- Benefit 5 -->
+                <div class="fade-in">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-clock"></i>
+                    </div>
+           
